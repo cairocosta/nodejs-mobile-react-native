@@ -49,6 +49,12 @@ def DoesAppAlreadyDefineWantedSTL() {
 def _isCorrectSTLDefinedByApp = DoesAppAlreadyDefineWantedSTL()
 
 android {
+    namespace "com.janeasystems.rn_nodejs_mobile"
+
+
+    buildFeatures {
+        buildConfig true
+    }
     compileSdkVersion ((rootProject?.ext?.properties?.compileSdkVersion) ?: 24)
     buildToolsVersion ((rootProject?.ext?.properties?.buildToolsVersion) ?: "30.0.2")
 

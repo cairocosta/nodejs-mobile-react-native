@@ -10,7 +10,6 @@ npm-debug.log
 yarn-error.log
 
 # Large binaries
-android/libnode/bin/*/libnode.so
 ios/NodeMobile.xcframework/**/NodeMobile
 
 # Xcode

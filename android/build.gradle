@@ -49,12 +49,6 @@ def DoesAppAlreadyDefineWantedSTL() {
 def _isCorrectSTLDefinedByApp = DoesAppAlreadyDefineWantedSTL()
 
 android {
-    namespace "com.janeasystems.rn_nodejs_mobile"
-
-
-    buildFeatures {
-        buildConfig true
-    }
     compileSdkVersion ((rootProject?.ext?.properties?.compileSdkVersion) ?: 24)
     buildToolsVersion ((rootProject?.ext?.properties?.buildToolsVersion) ?: "30.0.2")
 
@@ -68,6 +62,8 @@ android {
         externalNativeBuild {
             cmake {
                 cppFlags ""
+                // Enable 16KB page size for Android (NDK r27+)
+                arguments "-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON"
                 if(!_isCorrectSTLDefinedByApp) {
                     arguments "-DANDROID_STL=c++_shared"
                 }
